@@ -5,3 +5,8 @@ P
  src/main/java/base/BaseTest.java,a\1\a1409c3348e128f6b8de3c422846c43706eff0f8
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+^
+.src/main/java/driverFactory/DriverFactory.java,1\9\19e637162b48fc907faf2e0909b3a09605bb90a9
