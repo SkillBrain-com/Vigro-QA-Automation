@@ -36,5 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
-/src/test/resources/drivers/chromedriver.exe
-/.idea/
+/.idea
+/chromedriver.exe
+
