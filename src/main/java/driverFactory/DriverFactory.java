@@ -8,9 +8,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class DriverFactory {
     private static WebDriver driver = null;
     public static WebDriver setUp() {
-
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver", getChromeDriverPath() + "\\drivers\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", /*"src/test/resources/drivers/chromedriver.exe"*/ getChromeDriverPath() + "\\chromedriver.exe");
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--remote-allow-origins=*");
             driver = new ChromeDriver();
