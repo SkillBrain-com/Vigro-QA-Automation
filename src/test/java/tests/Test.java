@@ -6,12 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class Test {
     static WebDriver driver = DriverFactory.setUp();
+
     public static void main(String[] args) throws InterruptedException {
+
         driver.get("https://www.saucedemo.com/v1/index.html");
         //s-a deschis o instanta de chrome; in consola de la IJ apare mesajul ChromeDriver was started successfully
         System.out.println(DriverFactory.setUp().getTitle());
@@ -29,28 +32,50 @@ public class Test {
         pwd.sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
         Assert.assertEquals("https://www.saucedemo.com/v1/inventory.html", driver.getCurrentUrl());
-        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[1]")).click();
-        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[2]")).click();
-        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[3]")).click();
-        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[4]")).click();
-        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[5]")).click();
-        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[6]")).click();
-        driver.findElement(By.xpath("//span[@class='fa-layers-counter shopping_cart_badge']")).click();
+
+        String[] numeProduse = {"Backpack", "Light", "Bolt", "Onesie"}; //am ales 4 produse care contin aceste nume
+
+        List numeProduseAsList = Arrays.asList(numeProduse);
         Thread.sleep(3000);
-        Assert.assertEquals("https://www.saucedemo.com/v1/cart.html", driver.getCurrentUrl());
-
-        List<WebElement> listaProduseSelectata = driver.findElements(By.xpath("//div[@class='cart_list']//div[@class='cart_item']//button"));
-        int index = new Random().nextInt(6) + 1;
-        WebElement randomButonRemove = listaProduseSelectata.get(index);
-        randomButonRemove.click();
-        Thread.sleep(3000);
-
-        List<WebElement> listaProduseRamasa = driver.findElements(By.xpath("//div[@class='cart_list']//div[@class='cart_item']//button"));
-
-        if (listaProduseSelectata.size() != listaProduseRamasa.size()) {
-            System.out.println("Acesta functionalitate a decurs asa cum ne-am asteptat!");
+        List<WebElement> listaProduse = driver.findElements(By.xpath("//div[@class='inventory_item']"));
+        int count = 0;
+        for (int i = 0; i < listaProduse.size(); i++) {
+            String numeProdus = listaProduse.get(i).getText();
+            if (numeProduseAsList.contains(numeProdus)) {
+                count++;
+                driver.findElements(By.xpath("//div[@class='inventory_item']//button")).get(i).click();
+                /*
+                nu imi da click pe niciunul din cele 4 butoane pentru produsele selectate din lista ca sa pot
+                sa le comand pe site. De ce oare? Mersi!
+                 */
+                if (count == numeProduse.length) {
+                    break;
+                }
+            }
         }
 
-        driver.quit(); //terminate the WebDriver session.
+//        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[1]")).click();
+//        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[2]")).click();
+//        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[3]")).click();
+//        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[4]")).click();
+//        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[5]")).click();
+//        driver.findElement(By.xpath("(//div[@class='inventory_item']//button)[6]")).click();
+//        driver.findElement(By.xpath("//span[@class='fa-layers-counter shopping_cart_badge']")).click();
+//        Thread.sleep(3000);
+//        Assert.assertEquals("https://www.saucedemo.com/v1/cart.html", driver.getCurrentUrl());
+//
+//        List<WebElement> listaProduseSelectata = driver.findElements(By.xpath("//div[@class='cart_list']//div[@class='cart_item']//button"));
+//        int index = new Random().nextInt(6) + 1;
+//        WebElement randomButonRemove = listaProduseSelectata.get(index);
+//        randomButonRemove.click();
+//        Thread.sleep(3000);
+//
+//        List<WebElement> listaProduseRamasa = driver.findElements(By.xpath("//div[@class='cart_list']//div[@class='cart_item']//button"));
+//
+//        if (listaProduseSelectata.size() != listaProduseRamasa.size()) {
+//            System.out.println("Acesta functionalitate a decurs asa cum ne-am asteptat!");
+//        }
+
+        //driver.quit(); //terminate the WebDriver session.
     }
 }
