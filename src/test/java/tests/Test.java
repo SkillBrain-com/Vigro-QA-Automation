@@ -35,15 +35,18 @@ public class Test {
 
         String[] numeProduse = {"Backpack", "Light", "Bolt", "Onesie"}; //am ales 4 produse care contin aceste nume
 
-        List numeProduseAsList = Arrays.asList(numeProduse);
+        List<String> numeProduseAsList = Arrays.asList(numeProduse);
         Thread.sleep(3000);
-        List<WebElement> listaProduse = driver.findElements(By.xpath("//div[@class='inventory_item']"));
+        List<WebElement> listaProduse = driver.findElements(By.xpath("//div[@class='inventory_item']//div[@class='inventory_item_label']//div[@class='inventory_item_name']"));
         int count = 0;
         for (int i = 0; i < listaProduse.size(); i++) {
             String numeProdus = listaProduse.get(i).getText();
-            if (numeProduseAsList.contains(numeProdus)) {
+            System.out.println(listaProduse.get(i).getText());
+            if (numeProduseAsList.contains(listaProduse.get(i).getText())) {
                 count++;
-                driver.findElements(By.xpath("//div[@class='inventory_item']//button")).get(i).click();
+                Thread.sleep(5000);
+                WebElement elem = driver.findElements(By.xpath("//div[@class='inventory_item']//button")).get(i);
+                elem.click();
                 /*
                 nu imi da click pe niciunul din cele 4 butoane pentru produsele selectate din lista ca sa pot
                 sa le comand pe site. De ce oare? Mersi!
