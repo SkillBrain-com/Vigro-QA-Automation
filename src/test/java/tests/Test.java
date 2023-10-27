@@ -36,12 +36,14 @@ public class Test {
         Assert.assertEquals("https://www.saucedemo.com/v1/cart.html", driver.getCurrentUrl());
 
         List<WebElement> listaProduseSelectata = driver.findElements(By.xpath("//div[@class='cart_list']//div[@class='cart_item']//button"));
-        List<WebElement> listaProduseRamasa = driver.findElements(By.xpath("//div[@class='cart_list']//div[@class='cart_item']//button"));
         int indexRandom = new Random().nextInt(listaProduseSelectata.size());
 
         produsRandomRemoved(driver, listaProduseSelectata, indexRandom);
         Thread.sleep(5000);
+
+        List<WebElement> listaProduseRamasa = driver.findElements(By.xpath("//div[@class='cart_list']//div[@class='cart_item']//button"));
         validareFunctionalitate(listaProduseSelectata, listaProduseRamasa);
+        Thread.sleep(5000);
 
         driver.quit();
     }
@@ -63,14 +65,14 @@ public class Test {
     public static void produsRandomRemoved(WebDriver driver, List<WebElement> lista, int index) throws InterruptedException {
         WebElement randomButonRemove = lista.get(index);
         randomButonRemove.click();
-        Thread.sleep(3000);
     }
 
     public static void validareFunctionalitate(List<WebElement> listaPS, List<WebElement> listaPR) {
         if (listaPS.size() != listaPR.size()) {
             System.out.println("Acesta functionalitate a decurs asa cum ne-am asteptat!");
         } else {
-            System.out.println("Ceva nu a mers bine. De verificat!");
+            System.out.println("Ceva nu a mers bine!");
+
         }
     }
 
@@ -84,7 +86,7 @@ public class Test {
             //System.out.println(numeProdus); a fost folosit pentru verificarea textului
             if (numeProduseAsList.contains(listaProduse.get(i).getText())) {
                 count++;
-                Thread.sleep(1000);
+                //Thread.sleep(5000);
                 WebElement elem = driver.findElements(By.xpath("//div[@class='inventory_item']//button")).get(i);
                 elem.click();
                 if (count == numeProduse.length) {
