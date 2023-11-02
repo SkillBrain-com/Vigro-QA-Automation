@@ -1,6 +1,5 @@
 package common.base;
 
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import common.config.DriverFactory;
 import common.constants.CommonConstants;
 import common.enums.EnviromentErrorMessages;
@@ -11,10 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import util.ReadingFile;
 
-import java.io.IOException;
-import java.time.Duration;
 import java.util.List;
 
 public class CommonMethods {
@@ -29,10 +25,7 @@ public class CommonMethods {
         return locator;
     }
 
-    protected WebElement clickAble(WebElement locator) {
-        waitPage().until(ExpectedConditions.elementToBeClickable(locator));
-        return locator;
-    }
+
 
     protected void click(WebElement locator) {
         clickAble(locator).click();
@@ -48,6 +41,7 @@ public class CommonMethods {
     }
     protected void addText(String inputText, WebElement locator) {
         clear(locator);
+        //locator.clear();
         locator.sendKeys(inputText);
     }
 
@@ -69,6 +63,10 @@ public class CommonMethods {
         return System.getProperty(CommonConstants.OS_NAME);
     }
     private WebDriverWait waitPage() {
-        return new WebDriverWait(driver, CommonConstants.WEBDRIVER_WAIT_DURATION);
+        return new WebDriverWait(driver, CommonConstants.WEB_DRIVER_WAIT_DURATION);
+    }
+    private WebElement clickAble(WebElement locator) {
+        waitPage().until(ExpectedConditions.elementToBeClickable(locator));
+        return locator;
     }
 }
