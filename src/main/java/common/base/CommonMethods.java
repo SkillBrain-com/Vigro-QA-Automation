@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 public class CommonMethods {
-    private WebDriver driver;
+    protected WebDriver driver;
     public CommonMethods() {
         driver = DriverFactory.setUp();
         PageFactory.initElements(driver, this);
