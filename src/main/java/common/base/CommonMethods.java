@@ -3,21 +3,18 @@ package common.base;
 import common.config.DriverFactory;
 import common.constants.CommonConstants;
 import common.enums.EnviromentErrorMessages;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.IOException;
 import java.util.List;
 
 public class CommonMethods {
-    protected WebDriver driver;
-    public CommonMethods()  {
-        driver = DriverFactory.setUp();
+
+    public String url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+    protected WebDriver driver = DriverFactory.setUp();
+    public CommonMethods() {
         PageFactory.initElements(driver, this);
     }
 
@@ -25,8 +22,6 @@ public class CommonMethods {
         waitPage().until(ExpectedConditions.visibilityOf(locator));
         return locator;
     }
-
-
 
     protected void click(WebElement locator) {
         clickAble(locator).click();
@@ -42,11 +37,10 @@ public class CommonMethods {
     }
     protected void addText(String inputText, WebElement locator) {
         clear(locator);
-        //locator.clear();
         locator.sendKeys(inputText);
     }
 
-    protected String getUrl() {
+    public String getUrl() {
         return driver.getCurrentUrl();
     }
     private void clear(WebElement locator) {
@@ -69,5 +63,10 @@ public class CommonMethods {
     private WebElement clickAble(WebElement locator) {
         waitPage().until(ExpectedConditions.elementToBeClickable(locator));
         return locator;
+    }
+
+    public void openNewTab(){
+        String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,"t");
+        driver.findElement(By.linkText("urlLink")).sendKeys(selectLinkOpeninNewTab);
     }
 }

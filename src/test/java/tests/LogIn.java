@@ -3,39 +3,51 @@ package tests;
 import common.base.BaseTest;
 import common.config.DriverFactory;
 import login.pages.LoginPage;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class LogIn extends DriverFactory {
-    public LoginPage login(){
-        return new LoginPage();
-    }
-    @Test(description = "Happy Flow")
+
+    public LoginPage login;
+    @Test(description = "Happy Flow", priority = 1)
     @Parameters({"username","password"})
     public void verifyLogIn(String username, String password){
-        login().username(username);
-        login().password(password);
-        login().clickSignInBtn();
+        login.goToUrl();
+        login.username(username);
+        login.password(password);
+        login.clickSignInBtn();
     }
 
-//    @Test(description = "Negative Flow")
-//    @Parameters({"username","password"})
-//    public void negativeLogIn(String username, String password){
-//        login().username(username);
-//        login().password(password);
-//        login().clickSignInBtn();
+    @BeforeMethod
+    public void setUp2() {
+        login = new LoginPage();
+    }
+
+//    @AfterMethod
+//    public void tearDown() {
+//        login.leaveUrl();
 //    }
 
-//    @Test(description = "Happy Flow")
-//    public void clickForgotPassword(){
-//        login().clickForgotPassword();
-//    }
+    @Test(description = "Login with wrong input - Negative Login", priority = 2)
+    @Parameters({"username","password"})
+    public void negativeLoginIn(String username, String password){
+            login.goToUrl();
+            login.username(username);
+            login.password(password);
+            login.clickSignInBtn();
+            Assert.assertTrue(login.findAlertInvalidCredential());
+    }
 
-
-//    @Test(description = "Happy Flow")
-//    @Parameters({"username"})
-//    public void validateForgotPassword(String username){
-//        login().validateForgotPassword(username);
-//    }
+    @Test(description = "forgot password test", priority = 3)
+    @Parameters({"username"})
+    public void forgotPassword(String username){
+        login.goToUrl();
+        login.forgotPasswordLinkMethod();
+        login.forgotPasswordUsername(username);
+        login.clickResetBtn();
+    }
 
 }
