@@ -1,12 +1,8 @@
 package login.pages;
 
 import common.base.CommonMethods;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.sql.Driver;
 
 public class LoginPage extends CommonMethods {
     public String url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
@@ -36,7 +32,7 @@ public class LoginPage extends CommonMethods {
         driver.get(url);
     }
 
-    public void leaveUrl(){
+    public void leaveUrl() {
         driver.close();
     }
 
@@ -68,8 +64,8 @@ public class LoginPage extends CommonMethods {
         click(resetPasswordBtn);
     }
 
-    public boolean findAlertInvalidCredential(){
-        if(exceptionLogIN.isDisplayed()){
+    public boolean findAlertInvalidCredential() {
+        if (exceptionLogIN.isDisplayed()) {
             return true;
         }
         return false;

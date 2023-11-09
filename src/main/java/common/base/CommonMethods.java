@@ -15,7 +15,6 @@ public class CommonMethods {
     public String url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
     protected WebDriver driver = DriverFactory.setUp();
     public CommonMethods() {
-//        driver = DriverFactory.setUp();
         PageFactory.initElements(driver, this);
     }
 
@@ -38,7 +37,6 @@ public class CommonMethods {
     }
     protected void addText(String inputText, WebElement locator) {
         clear(locator);
-        //locator.clear();
         locator.sendKeys(inputText);
     }
 
