@@ -10,15 +10,18 @@
 		<classes>
 			<class name="tests.LogIn" >
 				<methods>
-					<include name="verifyLogIn">
-						<parameter name="username" value="Admin" />
-						<parameter name="password" value="admin123" />
-
-					</include>
-<!--					<include name="negativeLoginIn">-->
-<!--						<parameter name="username" value="Admin12121" />-->
+<!--					<include name="verifyLogIn">-->
+<!--						<parameter name="username" value="Admin" />-->
 <!--						<parameter name="password" value="admin123" />-->
+<!--					</include>-->
 
+					<include name="negativeLoginIn">
+						<parameter name="username" value="Admin12121" />
+						<parameter name="password" value="admin123" />
+					</include>
+
+<!--					<include name="forgotPassword">-->
+<!--						<parameter name="username" value="Admin" />-->
 <!--					</include>-->
 				</methods>
 			</class>

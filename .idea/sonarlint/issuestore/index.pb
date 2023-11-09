@@ -8,8 +8,6 @@
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 M
 src/main/java/util/Utils.java,0\f\0fe71eadfa2b5bc15007ee43601a14a1aa251d65
-M
-src/test/java/tests/Test.java,3\5\3560ff4eef26f5b993e6526f5c5dcde1e6e87bcf
 g
 7src/main/java/common/enums/EnviromentErrorMessages.java,5\c\5cbf65f1de5ec271df7756594946963f014bfef2
 c
@@ -22,5 +20,13 @@ W
 .src/main/java/common/config/DriverFactory.java,c\5\c5dce48ed7d39d0f2d3aa6469c918a63b6aa3bed
 \
 ,src/main/java/common/base/CommonMethods.java,0\4\0497bf58f01865f6df6e3139a92bcac696f5fd48
-T
-$src/main/java/login/pages/Login.java,2\a\2a7b49dbe01c6e06c3b2658f35337738097e916f
+N
+src/test/java/tests/LogIn.java,4\0\40c695a339bb92dae5e12a9acb1ab0e9912ce908
+X
+(src/main/java/login/pages/LoginPage.java,0\c\0c89e2e46b61ce429325dd360b7eef56f1b24dbb
+\
+,src/main/java/util/ExtentReportListener.java,6\2\6215247be736f013551d8eca626e88f6f30c5826
+@
+chromedriver.exe,d\0\d0b49ae29587435df3e9988b34c286a37d9a89d9
+`
+0src/main/java/common/enums/OperatingSystems.java,7\0\70e4c02e0bbac080156f0c25790990295b665a24
