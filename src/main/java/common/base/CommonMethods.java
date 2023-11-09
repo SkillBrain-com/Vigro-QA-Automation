@@ -11,11 +11,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
 import java.util.List;
 
 public class CommonMethods {
     protected WebDriver driver;
-    public CommonMethods() {
+    public CommonMethods()  {
         driver = DriverFactory.setUp();
         PageFactory.initElements(driver, this);
     }
@@ -50,7 +51,7 @@ public class CommonMethods {
     }
     private void clear(WebElement locator) {
         click(locator);
-        if (getOperationSystem().contains("WINDOWS")) {
+        if (getOperationSystem().contains("Windows")) {
             locator.sendKeys(Keys.chord(Keys.CONTROL, "a"));
         } else if (getOperationSystem().contains("MAC OS")) {
             locator.sendKeys(Keys.chord(Keys.COMMAND, "a"));
