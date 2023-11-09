@@ -17,4 +17,25 @@ public class LogIn extends DriverFactory {
         login().password(password);
         login().clickSignInBtn();
     }
+
+//    @Test(description = "Negative Flow")
+//    @Parameters({"username","password"})
+//    public void negativeLogIn(String username, String password){
+//        login().username(username);
+//        login().password(password);
+//        login().clickSignInBtn();
+//    }
+
+//    @Test(description = "Happy Flow")
+//    public void clickForgotPassword(){
+//        login().clickForgotPassword();
+//    }
+
+
+//    @Test(description = "Happy Flow")
+//    @Parameters({"username"})
+//    public void validateForgotPassword(String username){
+//        login().validateForgotPassword(username);
+//    }
+
 }
