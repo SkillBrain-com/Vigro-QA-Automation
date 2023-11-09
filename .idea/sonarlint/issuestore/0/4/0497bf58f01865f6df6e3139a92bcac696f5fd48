@@ -1,6 +1,5 @@
 
-g	java:S1127"FDefine and throw a dedicated exception instead of using a generic one.(„âÂ‹øÿÿÿÿ8±¹éœ»1
-q
-java:S1104"OMake url a static final constant or non-public and provide accessors if needed.(Ë¸ÔÖÿÿÿÿÿ8²¹éœ»1
-]	java:S125"<This block of commented-out lines of code should be removed.(Õ­Ê±ýÿÿÿÿ8Ã¹éœ»1
-X	java:S125)"<This block of commented-out lines of code should be removed.(æýóø8Æ¹éœ»1
+g	java:S112;"FDefine and throw a dedicated exception instead of using a generic one.(„âÂ‹øÿÿÿÿ8·œ»Ùº1
+X	java:S125-"<This block of commented-out lines of code should be removed.(æýóø8´Ÿ»Ùº1
+R
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úýÿÿÿÿ8¹µÖÙº1

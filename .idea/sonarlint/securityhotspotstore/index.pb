@@ -20,13 +20,9 @@ W
 .src/main/java/common/config/DriverFactory.java,c\5\c5dce48ed7d39d0f2d3aa6469c918a63b6aa3bed
 \
 ,src/main/java/common/base/CommonMethods.java,0\4\0497bf58f01865f6df6e3139a92bcac696f5fd48
+`
+0src/main/java/common/enums/OperatingSystems.java,7\0\70e4c02e0bbac080156f0c25790990295b665a24
 N
 src/test/java/tests/LogIn.java,4\0\40c695a339bb92dae5e12a9acb1ab0e9912ce908
 X
 (src/main/java/login/pages/LoginPage.java,0\c\0c89e2e46b61ce429325dd360b7eef56f1b24dbb
-\
-,src/main/java/util/ExtentReportListener.java,6\2\6215247be736f013551d8eca626e88f6f30c5826
-@
-chromedriver.exe,d\0\d0b49ae29587435df3e9988b34c286a37d9a89d9
-`
-0src/main/java/common/enums/OperatingSystems.java,7\0\70e4c02e0bbac080156f0c25790990295b665a24
