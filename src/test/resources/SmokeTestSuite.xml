@@ -3,35 +3,42 @@
 
 
 <suite name="Smoke Test Suite">
-<!--	<listeners>-->
-<!--		<listener class-name="util.ExtentReportListener" />-->
-<!--	</listeners>-->
+	<listeners>
+		<listener class-name="util.ExtentReportListener" />
+	</listeners>
 	<test name="Smoke Test">
 		<classes>
 			<class name="tests.LogIn" >
 				<methods>
-<!--					<include name="verifyLogIn">-->
-<!--						<parameter name="username" value="Admin" />-->
-<!--						<parameter name="password" value="admin123" />-->
-
-<!--					</include>-->
-<!--					<include name="negativeLogIn">-->
-<!--						<parameter name="username" value="Admin12121" />-->
-<!--						<parameter name="password" value="admin123" />-->
-
-<!--					</include>-->
-
-<!--					<include name="clickForgotPassword">-->
-<!--&lt;!&ndash;						<parameter name="username" value="Admin" />&ndash;&gt;-->
-<!--					</include>-->
-
-					<include name="validateForgotPassword">
+					<include name="verifyLogIn">
 						<parameter name="username" value="Admin" />
+						<parameter name="password" value="admin123" />
+
+					</include>
+					<include name="negativeLogIn">
+						<parameter name="username" value="Admin12121" />
+						<parameter name="password" value="admin123" />
 					</include>
 				</methods>
 			</class>
-
+					<class name="tests.MyInfoTest" >
+						<methods>
+							<include name="login">
+								<parameter name="username" value="Admin" />
+								<parameter name="password" value="admin123" />
+							</include>
+							<include name="myInfoPage">
+								<parameter name="name" value="Alex" />
+								<parameter name="lastname" value="Popoescu" />
+								<parameter name="license" value="B0938874873" />
+								<parameter name="nationality" value="Romanian" />
+								<parameter name="maritalStatus" value="Single" />
+								<parameter name="gender" value="Male" />
+								<parameter name="bloodType" value="A+" />
+								<parameter name="typeOfRunning" value="local" />
+							</include>
+						</methods>
+					</class>
 		</classes>
 	</test>
-
 </suite>

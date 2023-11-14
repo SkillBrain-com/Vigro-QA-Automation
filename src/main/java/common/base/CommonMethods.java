@@ -3,10 +3,7 @@ package common.base;
 import common.config.DriverFactory;
 import common.constants.CommonConstants;
 import common.enums.EnviromentErrorMessages;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,7 +14,7 @@ import java.util.List;
 public class CommonMethods {
     protected WebDriver driver;
     public CommonMethods()  {
-        driver = DriverFactory.setUp();
+        driver = DriverFactory.driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -49,7 +46,7 @@ public class CommonMethods {
     protected String getUrl() {
         return driver.getCurrentUrl();
     }
-    private void clear(WebElement locator) {
+    protected void clear(WebElement locator) {
         click(locator);
         if (getOperationSystem().contains("Windows")) {
             locator.sendKeys(Keys.chord(Keys.CONTROL, "a"));
@@ -69,5 +66,10 @@ public class CommonMethods {
     private WebElement clickAble(WebElement locator) {
         waitPage().until(ExpectedConditions.elementToBeClickable(locator));
         return locator;
+    }
+
+    protected void moveElement() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
 }
